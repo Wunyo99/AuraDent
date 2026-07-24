@@ -28,7 +28,7 @@ const Hero = () => {
           className="relative max-w-2xl px-6 md:px-15 text-center md:text-start space-y-10 z-10"
         >
           <h1 className="text-4xl md:text-8xl text-white font-bold">
-            Seemles <span className="text-teal-700">Dental Care</span>
+            Seemless <span className="text-teal-700">Dental Care</span>
           </h1>
 
           <p className="text-white/90 font-medium text-xl">
@@ -39,7 +39,7 @@ const Hero = () => {
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-5">
             <a
               to="/jobs"
-              className="flex items-center gap-2 bg-white py-4 px-5 rounded-full font-medium hover:bg-yellow-200 duration-300"
+              className="flex items-center gap-2 bg-white text-teal-700 py-3 px-5 rounded-full font-bold hover:bg-teal-700 cursor-pointer hover:text-white duration-300"
             >
               <span>Book Appointment</span>
               <MoveRight />

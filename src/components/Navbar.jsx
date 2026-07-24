@@ -10,47 +10,63 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { useEffect } from "react";
 
 const navLinks = [
   {
     name: "Home",
-    href: "#home",
+    href: "home",
   },
   {
     name: "About",
-    href: "#about",
+    href: "about",
   },
   {
     name: "Services",
-    href: "#services",
+    href: "services",
   },
   {
     name: "Doctors",
-    href: "#doctors",
+    href: "doctors",
   },
   {
     name: "Testimonials",
-    href: "#testimonials",
+    href: "testimonials",
   },
   {
     name: "Contact",
-    href: "#contact",
+    href: "contact",
   },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+
+      navLinks.forEach((item) => {
+        const section = document.getElementById(item.href);
+        if (!section) return;
+
+        const top = section.offsetTop - 120;
+        const bottom = top + section.offsetHeight;
+
+        if (window.scrollY >= top && window.scrollY < bottom) {
+          setActiveSection(item.href);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
-      className="
-      sticky
-      top-0
-      z-50
-      w-fu
-      bg-blue-5
-      backdrop-blur-
-    "
+      className={`sticky top-0 z-50 w-fu bg-blue-5 backdrop-blur- ${isScrolled || open ? "bg-teal-600 shadow-lg" : "bg-transparent"}`}
     >
       <div className="containe mx-aut w-full flex h-20 items-center justify-between px-4">
         <a
@@ -102,8 +118,8 @@ flex
             {navLinks.map((link) => (
               <NavigationMenuItem key={link.name}>
                 <a
-                  href={link.href}
-                  className="
+                  href={`#${link.href}`}
+                  className={` ${activeSection === link.href & "text-red-500"}
                       rounded-md
                       px-4
                       py-2
@@ -113,7 +129,7 @@ flex
                       transition
                       hover:bg-teal-50
                       hover:text-teal-700
-                    "
+                  `}
                 >
                   {link.name}
                 </a>
