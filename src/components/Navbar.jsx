@@ -4,6 +4,7 @@ import { Menu, Phone, Stethoscope } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import { Button } from "@/components/ui/button";
+import logo from "../assets/logo.png";
 
 import {
   NavigationMenu,
@@ -11,6 +12,9 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { useEffect } from "react";
+import { FaTeeth } from "react-icons/fa";
+import { FaTeethOpen } from "react-icons/fa6";
+import { GiFrontTeeth } from "react-icons/gi";
 
 const navLinks = [
   {
@@ -69,14 +73,8 @@ const Navbar = () => {
       className={`sticky top-0 z-50 w-fu bg-blue-5 backdrop-blur- ${isScrolled || open ? "bg-teal-600 shadow-lg" : "bg-transparent"}`}
     >
       <div className="containe mx-aut w-full flex h-20 items-center justify-between px-4">
-        <a
-          href="#home"
-          className="
-flex
-            items-center           gap-2
-          "
-        >
-          <div
+        <a href="#home" className="flex items-center gap-2">
+          {/* <div
             className="
             flex
             h-10
@@ -88,9 +86,9 @@ flex
             text-white
           "
           >
-            <Stethoscope size={22} />
-          </div>
-
+            <GiFrontTeeth size={22}/>
+          </div> */}
+          <img src={logo} alt="logo" className="w-13 rounded-full" />
           <div>
             <h1
               className="
@@ -119,7 +117,7 @@ flex
               <NavigationMenuItem key={link.name}>
                 <a
                   href={`#${link.href}`}
-                  className={` ${activeSection === link.href & "text-red-500"}
+                  className={` ${(activeSection === link.href) & "text-red-500"}
                       rounded-md
                       px-4
                       py-2
@@ -139,7 +137,9 @@ flex
         </NavigationMenu>
 
         <div className=" hidden lg:flex">
-          <button className=" flex items-center gap-2 bg-teal-600 hover:bg-teal-700 rounded-full py-2 px-3 text-white">
+          <button
+            className={` flex items-center gap-2 ${isScrolled ? "bg-white text-teal-600" : " bg-teal-600 text-white"} hover:bg-teal-700 rounded-full py-2 px-3 `}
+          >
             <Phone size={18} />
             <span>Call Now</span>
           </button>

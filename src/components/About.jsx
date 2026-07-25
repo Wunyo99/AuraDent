@@ -35,7 +35,7 @@ const About = () => {
           About Us
         </span>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
         <div className="space-y-4">
           <h4 className="text-4xl md:text-5xl font-bold">
             Short Story About{" "}
