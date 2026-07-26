@@ -92,7 +92,7 @@ const Testimonials = () => {
           {" "}
           Testimonials From Our <span className="text-teal-600">Patients</span>
         </h1>
-        <p className="text-gray-500 font-medium max-w-md">
+        <p className="text-gray-500 font-medium max-w-md sm:mx-auto lg:mx-0">
           Our team of seasoned professionals is committed to delivering
           outstanding dental care that exceeds your expectations.
         </p>
