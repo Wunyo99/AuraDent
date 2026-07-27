@@ -92,13 +92,17 @@ const Footer = () => {
               {" "}
               <img src={logo2} alt="" className="w-15 md:w-50" />
             </div>
-            <h5 className="text-5xl lg:text-9xl font-semibold text-white italic">AuraDent</h5>
+            <h5 className="text-5xl lg:text-9xl font-semibold text-teal-200 italic">AuraDent</h5>
           </div>
         </div>
         <div>
           <img src={doctors2} alt="" className="w-70 md:w-150" />
         </div>
       </section>
+      <hr />
+      <div className="text-center">
+        <p className="py-2 text-white">© {new Date().getFullYear()} ALL RIGHT RESERVED BY <span className="font-semibold">AuraDent</span></p>
+      </div>
     </footer>
   );
 };

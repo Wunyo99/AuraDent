@@ -59,19 +59,15 @@ const items = [
 const FAQs = () => {
   return (
     <section
-      className="relative py-16 text-white bg-cover bg-center bg-teal-600"
-      style={{
-        backgroundImage: `url("https://t3.ftcdn.net/jpg/02/46/18/78/240_F_246187812_D7A1GzXLISKxcKr24TpH095qPeumMv6Q.jpg")`,
-      }}
+      className="py-16 text-white bg-cover bg-center bg-teal-50" id="faqs"
     >
-      <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/30 to-black/50"></div>{" "}
-      <div className="relative container z-20 mx-auto px-6">
+      <div className="container z-20 mx-auto px-6">
         <div className="mb-16 text-center">
-          <h2 className="mt-4 text-4xl font-semibold">
+          <h2 className="mt-4 text-black text-4xl font-semibold">
             Frequently <span className="text-teal-600">Asked Questions</span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-white">
+          <p className="mx-auto mt-5 max-w-2xl text-black">
             Get answers to the most common questions about our dental
             treatments, appointments, and services.
           </p>
@@ -86,7 +82,7 @@ const FAQs = () => {
             <AccordionItem
               key={item.value}
               value={item.value}
-              className="rounded-l border border-gray-200 bg-white px-6 transition hover:border-teal-600"
+              className="rounded-l border border-gray-200 bg-gray-200 px-6 transition hover:border-teal-600"
             >
               <AccordionTrigger className="py-6 text-black text-left text-lg hover:no-underline">
                 {item.trigger}

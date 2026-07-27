@@ -63,17 +63,17 @@ const Services = () => {
   return (
     <section className="px-10 py-16" id="services">
       <div className="space-y-4 py- mb-12">
-        <div className="flex items-center gap-1">
+        <div className="flex items-center justify-center lg:justify-start gap-1">
           <div className="w-8 h-0.5 bg-teal-600"></div>
           <span className="font-semibold tracking-wider text-teal-600 uppercase">
             Professional and Trained
           </span>
         </div>
-        <h1 className="font-bold text-4xl">
+        <h1 className="font-bold text-4xl text-center lg:text-start">
           {" "}
           <span className="text-teal-600">Services</span> We Provide
         </h1>
-        <p className="text-gray-500 font-medium max-w-xl">
+        <p className="text-gray-500 font-medium max-w-xl mx-auto text-center lg:mx-auto lg:text-start">
           Transform your smile with our Dentistry services. From routine exams
           to smile makeovers, our expert team ensures comprehensive care for a
           confident and radiant smile.

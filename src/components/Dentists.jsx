@@ -108,17 +108,17 @@ const Dentists = () => {
   return (
     <section className="px-10 py-16 bg-teal-50" id="doctors">
       <div className="space-y-4 py- mb-12">
-        <div className="flex items-center gap-1">
+        <div className="flex items-center justify-center lg:justify-start gap-1">
           <div className="w-8 h-0.5 bg-teal-600"></div>
           <span className="font-semibold tracking-wider text-teal-600 uppercase">
             Experienced and Skilled
           </span>
         </div>
-        <h1 className="font-bold text-4xl">
+        <h1 className="font-bold text-4xl text-center lg:text-start">
           {" "}
           Meet Our <span className="text-teal-600">Expert Dentists</span>
         </h1>
-        <p className="text-gray-500 font-medium max-w-xl">
+        <p className="text-gray-500 font-medium max-w-xl mx-aut text-center mx-auto lg:text-start lg:mx-0">
           Our team of seasoned professionals is committed to delivering
           outstanding dental care that exceeds your expectations.
         </p>

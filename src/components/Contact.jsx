@@ -28,8 +28,8 @@ const contacts = [
 ];
 const Contact = () => {
   return (
-    <section className="px-5 lg:px-10 py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <section className="px-5 lg:px-10 py-16" id="contact">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {contacts.map((item, index) => (
           <div key={index} className="p-4 border-e-3 hover:border-e-teal-600 transition hover:-translate-y-2">
             <div className="flex items-center justify-center mb-4">

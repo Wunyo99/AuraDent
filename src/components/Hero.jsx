@@ -27,7 +27,7 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="relative max-w-2xl px-6 md:px-15 text-center md:text-start space-y-10 z-10"
         >
-          <h1 className="text-4xl md:text-8xl text-white font-bold">
+          <h1 className="text-6xl md:text-8xl text-white font-bold">
             Seemless <span className="text-teal-700">Dental Care</span>
           </h1>
 
@@ -38,7 +38,7 @@ const Hero = () => {
 
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-5">
             <a
-              to="/jobs"
+              href="#appointment"
               className="flex items-center gap-2 bg-white text-teal-700 py-3 px-5 rounded-full font-bold hover:bg-teal-700 cursor-pointer hover:text-white duration-300"
             >
               <span>Book Appointment</span>

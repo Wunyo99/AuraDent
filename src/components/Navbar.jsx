@@ -38,6 +38,10 @@ const navLinks = [
     href: "testimonials",
   },
   {
+    name: "FAQs",
+    href: "faqs",
+  },
+  {
     name: "Contact",
     href: "contact",
   },
@@ -117,17 +121,7 @@ const Navbar = () => {
               <NavigationMenuItem key={link.name}>
                 <a
                   href={`#${link.href}`}
-                  className={` ${(activeSection === link.href) & "text-red-500"}
-                      rounded-md
-                      px-4
-                      py-2
-                      text-sm
-                      font-medium
-                      text-white
-                      transition
-                      hover:bg-teal-50
-                      hover:text-teal-700
-                  `}
+                  className={`rounded-md px-4 py-2 text-sm transition font-medium ${activeSection === link.href ? "bg-teal-50 text-teal-700" : "text-white hover:bg-teal-50 hover:text-teal-700"}`}
                 >
                   {link.name}
                 </a>
@@ -137,20 +131,21 @@ const Navbar = () => {
         </NavigationMenu>
 
         <div className=" hidden lg:flex">
-          <button
-            className={` flex items-center gap-2 ${isScrolled ? "bg-white text-teal-600" : " bg-teal-600 text-white"} hover:bg-teal-700 rounded-full py-2 px-3 `}
+          <a
+            href="tel:+233245494534"
+            className={` flex items-center gap-2 ${isScrolled ? "bg-white text-teal-600" : " bg-teal-600 text-white"} hover:scale-97 cursor-pointer rounded-full py-2 px-3 `}
           >
             <Phone size={18} />
             <span>Call Now</span>
-          </button>
+          </a>
         </div>
 
         <div className="lg:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <button className="lg:hidden bg-white/90 p-1 rounded-md">
                 <Menu />
-              </Button>
+              </button>
             </SheetTrigger>
 
             <SheetContent
@@ -159,18 +154,11 @@ const Navbar = () => {
               w-72
             "
             >
-              <div
-                className="
-              mt-10
-              flex
-              flex-col
-              gap-4
-            "
-              >
+              <div className="mt-10 flex flex-col">
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
-                    href={link.href}
+                    href={`#${link.href}`}
                     onClick={() => setOpen(false)}
                     className="
                       rounded-lg
@@ -187,15 +175,26 @@ const Navbar = () => {
                   </a>
                 ))}
 
-                <Button
-                  className="
+                <a
+                  href="#appointment"
+                  onClick={() => setOpen(false)}
+                  className=" p-3 text-white rounded-lg w-fit md:w-[50%] ms-4
                   mt-4
                   bg-teal-600
                   hover:bg-teal-700
                 "
                 >
                   Book Appointment
-                </Button>
+                </a>
+                <div className="lg:hidden mt-2">
+                  <a
+                    href="tel:+233245494534"
+                    className={` flex items-center gap-2 ms-4 bg-teal-600 text-white hover:scale-97 cursor-pointer rounded-lg  p-3 w-[50%] `}
+                  >
+                    <Phone size={18} />
+                    <span>Call Now</span>
+                  </a>
+                </div>
               </div>
             </SheetContent>
           </Sheet>

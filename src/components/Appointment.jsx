@@ -1,12 +1,42 @@
+import { useState } from "react";
+import { toast } from "sonner";
 const Appointment = () => {
+  const initialState = {
+    fullname: "",
+    email: "",
+    phone: "",
+    service: "",
+    date: "",
+    time: "",
+    message: "",
+  };
+  const [bookingData, setBookingData] = useState(initialState);
+
+  const handleChange = (e) => {
+    setBookingData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.success("Thank you for booking with us!", {
+      description:
+        "Your appointment request has been received. Our team will get back to you soon.",
+    });
+    console.log("submitted");
+    console.log(bookingData);
+    setBookingData(initialState);
+  };
   return (
-    <section className="px-5 md:px-10 py-16">
+    <section className="px-5 md:px-10 py-16" id="appointment">
       <div className="space-y-4 py- mb-12">
-        <h1 className="font-bold text-4xl">
+        <h1 className="font-bold text-4xl text-center lg:text-start">
           {" "}
           Book Your <span className="text-teal-600">Appointment</span>
         </h1>
-        <p className="text-gray-500 font-medium max-w-xl">
+        <p className="text-gray-500 font-medium max-w-xl mx-auto text-center lg:mx-0 lg:text-start">
           Schedule your visit with our experienced dental team. Fill out the
           form below and we will contact you to confirm your appointment.
         </p>
@@ -52,9 +82,8 @@ const Appointment = () => {
         </div>
 
         <div className="order-1 lg:order-2 shadow-xl p-5 h-fit lg:sticky lg:top-32 rounded-xl border">
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* Full Name */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm text-gray-700 font-medium">
                   Full Name
@@ -62,13 +91,14 @@ const Appointment = () => {
                 <input
                   type="text"
                   placeholder="John Doe"
+                  name="fullname"
+                  value={bookingData.fullname}
+                  onChange={handleChange}
                   required
-                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl 
-        focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
                 />
               </div>
 
-              {/* Email */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm text-gray-700 font-medium">
                   Email Address
@@ -76,15 +106,16 @@ const Appointment = () => {
                 <input
                   type="email"
                   placeholder="johndoe@gmail.com"
+                  name="email"
+                  value={bookingData.email}
+                  onChange={handleChange}
                   required
-                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl 
-        focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* Phone */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm text-gray-700 font-medium">
                   Phone Number
@@ -92,21 +123,26 @@ const Appointment = () => {
                 <input
                   type="tel"
                   placeholder="+233 XX XXX XXXX"
+                  name="phone"
+                  value={bookingData.phone}
+                  onChange={handleChange}
+                  maxLength={10}
                   required
-                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl 
-        focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
                 />
               </div>
 
-              {/* Service */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm text-gray-700 font-medium">
                   Select Service
                 </label>
 
                 <select
-                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl
-        focus:outline-none focus:ring-2 focus:ring-teal-500 transition text-gray-600"
+                  name="service"
+                  value={bookingData.service}
+                  onChange={handleChange}
+                  required
+                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition text-gray-600"
                 >
                   <option value="">Choose a service</option>
                   <option value="general">General Dentistry</option>
@@ -122,7 +158,6 @@ const Appointment = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* Date */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm text-gray-700 font-medium">
                   Preferred Date
@@ -130,36 +165,46 @@ const Appointment = () => {
 
                 <input
                   type="date"
-                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl
-        focus:outline-none focus:ring-2 focus:ring-teal-500 transition text-gray-600"
+                  name="date"
+                  value={bookingData.date}
+                  onChange={handleChange}
+                  required
+                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition text-gray-600"
                 />
               </div>
 
-              {/* Time */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm text-gray-700 font-medium">
                   Preferred Time
                 </label>
 
                 <select
-                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl
-        focus:outline-none focus:ring-2 focus:ring-teal-500 transition text-gray-600"
+                  name="time"
+                  value={bookingData.time}
+                  onChange={handleChange}
+                  required
+                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition text-gray-600"
                 >
                   <option value="">Select time</option>
-                  <option>Morning (8:00 AM - 12:00 PM)</option>
-                  <option>Afternoon (12:00 PM - 4:00 PM)</option>
-                  <option>Evening (4:00 PM - 6:00 PM)</option>
+                  <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
+                  <option value="afternoon">
+                    Afternoon (12:00 PM - 4:00 PM)
+                  </option>
+                  <option value="evening">Evening (4:00 PM - 6:00 PM)</option>
                 </select>
               </div>
             </div>
 
-            {/* Message */}
             <div className="flex flex-col gap-2">
               <label className="text-sm text-gray-700 font-medium">
                 Additional Information
               </label>
 
               <textarea
+                name="message"
+                value={bookingData.message}
+                onChange={handleChange}
+                required
                 rows="5"
                 placeholder="Tell us about your dental concern..."
                 className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition resize-none"

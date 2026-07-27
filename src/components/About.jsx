@@ -29,7 +29,7 @@ const stats = [
 const About = () => {
   return (
     <section className="px-10 py-16" id="about">
-      <div className="flex items-center gap-1">
+      <div className="flex items-center justify-center lg:justify-start gap-1">
         <div className="w-8 h-0.5 bg-teal-600"></div>
         <span className="font-semibold tracking-wider text-teal-600 uppercase">
           About Us
@@ -37,7 +37,7 @@ const About = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
         <div className="space-y-4">
-          <h4 className="text-4xl md:text-5xl font-bold">
+          <h4 className="text-4xl text-center lg:text-start md:text-5xl font-bold">
             Short Story About{" "}
             <span className="text-teal-600">AuraDent Clinic</span>
           </h4>
@@ -49,11 +49,11 @@ const About = () => {
             From preventive care to advanced dental procedures, we are committed
             to making your dental experience simple, relaxing, and rewarding.
           </p>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className={`flex flex-col justify-center p-4 rounded-xl text-center ${stat.bg} `}
+                className={`flex flex-col justify-center p-4 rounded-x text-center ${stat.bg} `}
               >
                 <h5 className={`text-center font-bold text-2xl ${stat.color}`}>
                   {stat.value}
