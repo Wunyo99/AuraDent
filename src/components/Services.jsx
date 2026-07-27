@@ -73,7 +73,7 @@ const Services = () => {
           {" "}
           <span className="text-teal-600">Services</span> We Provide
         </h1>
-        <p className="text-gray-500 font-medium max-w-xl mx-auto text-center lg:mx-auto lg:text-start">
+        <p className="text-gray-500 font-medium max-w-xl mx-auto text-center lg:mx-0 lg:text-start">
           Transform your smile with our Dentistry services. From routine exams
           to smile makeovers, our expert team ensures comprehensive care for a
           confident and radiant smile.
