@@ -169,7 +169,7 @@ const Appointment = () => {
                   value={bookingData.date}
                   onChange={handleChange}
                   required
-                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition text-gray-600"
+                  className="py-3 ps-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition text-gray-600"
                 />
               </div>
 

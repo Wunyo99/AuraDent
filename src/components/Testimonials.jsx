@@ -1,6 +1,4 @@
-import React from "react";
-import ScrollReelTestimonials from "./ui/ScrollReelTestimonials";
-import CircularTestimonials from "./ui/CircularTestimonials";
+import StaggerTestimonials from "./ui/StaggerTestimonials";
 const testimonials = [
   {
     id: 1,
@@ -86,7 +84,6 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <section className="px-10 py-16" id="testimonials">
-      {/* <ScrollReelTestimonials testimonials={testimonials} /> */}
       <div className="text-center lg:text-start lg:flex space-y-4 justify-between mb-12">
         <h1 className="font-bold text-4xl lg:w-95">
           {" "}
@@ -97,17 +94,7 @@ const Testimonials = () => {
           outstanding dental care that exceeds your expectations.
         </p>
       </div>
-      <CircularTestimonials
-        testimonials={testimonials}
-        colors={{
-          name: "#000",
-          designation: "#009689",
-          testimony: "#000",
-          arrowBackground: "#111827",
-          arrowForeground: "#ffffff",
-          arrowHoverBackground: "#009689",
-        }}
-      />{" "}
+      <StaggerTestimonials />
     </section>
   );
 };

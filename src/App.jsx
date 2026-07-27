@@ -9,6 +9,7 @@ import FAQs from "./components/FAQs"
 import Appointment from "./components/Appointment"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
+import BackToTop from "./components/BackToTop"
 const App = () => {
   return (
 <>
@@ -23,6 +24,7 @@ const App = () => {
 <FAQs/>
 <Contact/>
 <Footer/>
+<BackToTop/>
 </>
   )
 }
