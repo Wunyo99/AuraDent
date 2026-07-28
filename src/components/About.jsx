@@ -53,7 +53,7 @@ const About = () => {
             Short Story About{" "}
             <span className="text-teal-600">AuraDent Clinic</span>
           </h4>
-          <p className="text-gray-500">
+          <p className="text-gray-500 text-justify">
             At AuraDent, we are passionate about creating healthy, confident
             smiles through exceptional dental care. Our team of skilled
             professionals combines modern technology with personalized treatment
