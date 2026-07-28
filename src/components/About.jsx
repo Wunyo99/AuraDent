@@ -1,4 +1,4 @@
-import { div } from "framer-motion/client";
+import { motion } from "framer-motion";
 
 const stats = [
   {
@@ -29,14 +29,26 @@ const stats = [
 const About = () => {
   return (
     <section className="px-10 py-16" id="about">
-      <div className="flex items-center justify-center lg:justify-start gap-1">
-        <div className="w-8 h-0.5 bg-teal-600"></div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="flex items-center justify-center lg:justify-start gap-1"
+      >
+        <div className="w-8 h-0.5 bg-teal-600" />
         <span className="font-semibold tracking-wider text-teal-600 uppercase">
           About Us
         </span>
-      </div>
+      </motion.div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
-        <div className="space-y-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="space-y-4"
+        >
           <h4 className="text-4xl text-center lg:text-start md:text-5xl font-bold">
             Short Story About{" "}
             <span className="text-teal-600">AuraDent Clinic</span>
@@ -62,14 +74,19 @@ const About = () => {
               </div>
             ))}
           </div>
-        </div>
-        <div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
           <img
             src="https://t3.ftcdn.net/jpg/11/77/93/80/240_F_1177938045_Wy1ek0DCs6xW3pdrCtuiVpsr9MdnYDwv.jpg"
             alt=""
             className="w-full h-full rounded-2xl"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
 
 const items = [
   {
@@ -59,10 +60,17 @@ const items = [
 const FAQs = () => {
   return (
     <section
-      className="py-16 text-white bg-cover bg-center bg-teal-50" id="faqs"
+      className="py-16 text-white bg-cover bg-center bg-teal-50"
+      id="faqs"
     >
       <div className="container z-20 mx-auto px-6">
-        <div className="mb-16 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-16 text-center"
+        >
           <h2 className="mt-4 text-black text-4xl font-semibold">
             Frequently <span className="text-teal-600">Asked Questions</span>
           </h2>
@@ -71,29 +79,37 @@ const FAQs = () => {
             Get answers to the most common questions about our dental
             treatments, appointments, and services.
           </p>
-        </div>
-        <Accordion
-          type="single"
-          collapsible
-          defaultValue="item-1"
-          className="mx-auto max-w-4xl space-y-2"
-        >
-          {items.map((item) => (
-            <AccordionItem
-              key={item.value}
-              value={item.value}
-              className="rounded-l border border-gray-200 bg-gray-200 px-6 transition hover:border-teal-600"
-            >
-              <AccordionTrigger className="py-6 text-black text-left text-lg hover:no-underline">
-                {item.trigger}
-              </AccordionTrigger>
+        </motion.div>
 
-              <AccordionContent className="pb-6 text-base leading-7 text-black">
-                {item.content}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>{" "}
+        <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <Accordion
+            type="single"
+            collapsible
+            defaultValue="item-1"
+            className="mx-auto max-w-4xl space-y-2"
+          >
+            {items.map((item) => (
+              <AccordionItem
+                key={item.value}
+                value={item.value}
+                className="rounded-l border border-gray-200 bg-gray-200 px-6 transition hover:border-teal-600"
+              >
+                <AccordionTrigger className="py-6 text-black text-left text-lg hover:no-underline">
+                  {item.trigger}
+                </AccordionTrigger>
+
+                <AccordionContent className="pb-6 text-base leading-7 text-black">
+                  {item.content}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>{" "}
+        </motion.div>
       </div>
     </section>
   );

@@ -14,7 +14,8 @@ const doctors = [
   },
   {
     id: 2,
-    image: "https://t4.ftcdn.net/jpg/01/46/80/45/240_F_146804560_qRAQ9BAuRGeCNK1UchWNHpneOQo6Aldr.jpg",
+    image:
+      "https://t4.ftcdn.net/jpg/01/46/80/45/240_F_146804560_qRAQ9BAuRGeCNK1UchWNHpneOQo6Aldr.jpg",
     name: "Dr. Michael Anderson",
     speciality: "Cosmetic Dentist",
     experience: "10 Years",
@@ -23,7 +24,8 @@ const doctors = [
   },
   {
     id: 3,
-    image: "https://t4.ftcdn.net/jpg/02/45/68/59/240_F_245685948_48nzHdSrq9UVbkAREiIIQuqFSIM500nu.jpg",
+    image:
+      "https://t4.ftcdn.net/jpg/02/45/68/59/240_F_245685948_48nzHdSrq9UVbkAREiIIQuqFSIM500nu.jpg",
     name: "Dr. Sophia Bennett",
     speciality: "Orthodontist",
     experience: "14 Years",
@@ -32,7 +34,8 @@ const doctors = [
   },
   {
     id: 4,
-    image: "https://t3.ftcdn.net/jpg/02/40/98/40/240_F_240984034_qWMaSsYBY3lwk2U4Dtl1WLePddVFId1y.jpg",
+    image:
+      "https://t3.ftcdn.net/jpg/02/40/98/40/240_F_240984034_qWMaSsYBY3lwk2U4Dtl1WLePddVFId1y.jpg",
     name: "Dr. James Wilson",
     speciality: "Oral Surgeon",
     experience: "15 Years",
@@ -41,7 +44,8 @@ const doctors = [
   },
   {
     id: 5,
-    image: "https://t4.ftcdn.net/jpg/04/71/34/39/240_F_471343907_dBJ47ZINOFlKGXymhT2mkfgvnnusHL9H.jpg",
+    image:
+      "https://t4.ftcdn.net/jpg/04/71/34/39/240_F_471343907_dBJ47ZINOFlKGXymhT2mkfgvnnusHL9H.jpg",
     name: "Dr. Olivia Thompson",
     speciality: "Pediatric Dentist",
     experience: "9 Years",
@@ -50,7 +54,8 @@ const doctors = [
   },
   {
     id: 6,
-    image: "https://t3.ftcdn.net/jpg/02/39/92/14/240_F_239921437_zkw6VQ9aFpAS6xpBqcKB2Is0VbTKLiKA.jpg",
+    image:
+      "https://t3.ftcdn.net/jpg/02/39/92/14/240_F_239921437_zkw6VQ9aFpAS6xpBqcKB2Is0VbTKLiKA.jpg",
     name: "Dr. Daniel Roberts",
     speciality: "Endodontist",
     experience: "11 Years",
@@ -59,7 +64,8 @@ const doctors = [
   },
   {
     id: 7,
-    image: "https://t3.ftcdn.net/jpg/00/75/94/68/240_F_75946889_slxDRkhd0aQcCWkfA015v8wbx65ma6RJ.jpg",
+    image:
+      "https://t3.ftcdn.net/jpg/00/75/94/68/240_F_75946889_slxDRkhd0aQcCWkfA015v8wbx65ma6RJ.jpg",
     name: "Dr. Isabella Moore",
     speciality: "Periodontist",
     experience: "13 Years",
@@ -68,7 +74,8 @@ const doctors = [
   },
   {
     id: 8,
-    image: "https://t3.ftcdn.net/jpg/00/96/01/26/240_F_96012689_u6TDoM1XHJ4mBAa6CM3HjL2eEngpn6eX.jpg",
+    image:
+      "https://t3.ftcdn.net/jpg/00/96/01/26/240_F_96012689_u6TDoM1XHJ4mBAa6CM3HjL2eEngpn6eX.jpg",
     name: "Dr. Ethan Harris",
     speciality: "Implant Specialist",
     experience: "16 Years",
@@ -107,7 +114,13 @@ const icons = {
 const Dentists = () => {
   return (
     <section className="px-10 py-16 bg-teal-50" id="doctors">
-      <div className="space-y-4 py- mb-12">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="space-y-4 py- mb-12"
+      >
         <div className="flex items-center justify-center lg:justify-start gap-1">
           <div className="w-8 h-0.5 bg-teal-600"></div>
           <span className="font-semibold tracking-wider text-teal-600 uppercase">
@@ -122,9 +135,15 @@ const Dentists = () => {
           Our team of seasoned professionals is committed to delivering
           outstanding dental care that exceeds your expectations.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7"
+      >
         {doctors.map((doctor) => (
           <motion.div
             key={doctor.id}
@@ -137,9 +156,7 @@ const Dentists = () => {
                 className="rounded-4xl"
               />
             </div>
-            <motion.div
-              className="flex flex-col gap-2 absolute top-8 inset-e-2 opacity-100 lg:opacity-0 translate-x-0 lg:translate-x-4 transition-all duration-300 lg:group-hover:opacity-100 lg:group-hover:translate-x-0 "
-            >
+            <motion.div className="flex flex-col gap-2 absolute top-8 inset-e-2 opacity-100 lg:opacity-0 translate-x-0 lg:translate-x-4 transition-all duration-300 lg:group-hover:opacity-100 lg:group-hover:translate-x-0 ">
               {socialLinks.map((link) => (
                 <a
                   href={link.href}
@@ -166,7 +183,7 @@ const Dentists = () => {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

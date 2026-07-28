@@ -1,6 +1,5 @@
 import { section } from "framer-motion/client";
-import React from "react";
-
+import { motion } from "framer-motion";
 export const services = [
   {
     id: 1,
@@ -62,7 +61,13 @@ export const services = [
 const Services = () => {
   return (
     <section className="px-10 py-16" id="services">
-      <div className="space-y-4 py- mb-12">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="space-y-4 py- mb-12"
+      >
         <div className="flex items-center justify-center lg:justify-start gap-1">
           <div className="w-8 h-0.5 bg-teal-600"></div>
           <span className="font-semibold tracking-wider text-teal-600 uppercase">
@@ -78,8 +83,14 @@ const Services = () => {
           to smile makeovers, our expert team ensures comprehensive care for a
           confident and radiant smile.
         </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7"
+      >
         {services.map((service) => (
           <div
             key={service.id}
@@ -101,7 +112,7 @@ const Services = () => {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

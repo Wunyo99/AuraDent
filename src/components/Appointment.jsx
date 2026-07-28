@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 const Appointment = () => {
   const initialState = {
     fullname: "",
@@ -31,7 +32,13 @@ const Appointment = () => {
   };
   return (
     <section className="px-5 md:px-10 py-16" id="appointment">
-      <div className="space-y-4 py- mb-12">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="space-y-4 py- mb-12"
+      >
         <h1 className="font-bold text-4xl text-center lg:text-start">
           {" "}
           Book Your <span className="text-teal-600">Appointment</span>
@@ -40,9 +47,17 @@ const Appointment = () => {
           Schedule your visit with our experienced dental team. Fill out the
           form below and we will contact you to confirm your appointment.
         </p>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 order-2 lg:order-1 gap-6 justify-center">
+      </motion.div>
+      <motion.div
+
+        className="grid grid-cols-1 lg:grid-cols-2 gap-7"
+      >
+        <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2 }}
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 order-2 lg:order-1 gap-6 justify-center">
           <div class="overflow-hidden rounded-xl group shadow-lg w-full h-65 col-span-1 lg:col-span-2">
             <img
               src="https://t4.ftcdn.net/jpg/18/94/30/75/240_F_1894307593_NtGhzMGScjRvNhHcxACtZuBQfnSxufc9.jpg"
@@ -79,9 +94,14 @@ const Appointment = () => {
               class="w-full object-cover h-full transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="order-1 lg:order-2 shadow-xl p-5 h-fit lg:sticky lg:top-32 rounded-xl border">
+        <motion.div
+                initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="order-1 lg:order-2 shadow-xl p-5 h-fit lg:sticky lg:top-32 rounded-xl border">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="flex flex-col gap-2">
@@ -218,8 +238,8 @@ const Appointment = () => {
               Request Appointment
             </button>
           </form>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

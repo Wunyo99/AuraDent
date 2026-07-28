@@ -1,4 +1,5 @@
 import StaggerTestimonials from "./ui/StaggerTestimonials";
+import { motion } from "framer-motion";
 const testimonials = [
   {
     id: 1,
@@ -85,16 +86,35 @@ const Testimonials = () => {
   return (
     <section className="px-10 py-16" id="testimonials">
       <div className="text-center lg:text-start lg:flex space-y-4 justify-between mb-12">
-        <h1 className="font-bold text-4xl lg:w-95">
+        <motion.h1
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="font-bold text-4xl lg:w-95"
+        >
           {" "}
           Testimonials From Our <span className="text-teal-600">Patients</span>
-        </h1>
-        <p className="text-gray-500 font-medium max-w-md sm:mx-auto lg:mx-0">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-gray-500 font-medium max-w-md sm:mx-auto lg:mx-0"
+        >
           Our team of seasoned professionals is committed to delivering
           outstanding dental care that exceeds your expectations.
-        </p>
+        </motion.p>
       </div>
-      <StaggerTestimonials />
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <StaggerTestimonials />
+      </motion.section>
     </section>
   );
 };

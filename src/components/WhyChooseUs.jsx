@@ -1,4 +1,5 @@
 import { BadgeCheck, Microscope, UserRoundCheck } from "lucide-react";
+import { motion } from "framer-motion";
 const features = [
   {
     icon: <BadgeCheck className=" text-teal-600" size={45} />,
@@ -21,8 +22,14 @@ const features = [
 ];
 const WhyChooseUs = () => {
   return (
-    <section className="px-10 py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <section className="px-10 py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+      >
         {features.map((feature) => (
           <div
             key={feature}
@@ -37,7 +44,7 @@ const WhyChooseUs = () => {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

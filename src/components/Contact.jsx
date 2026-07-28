@@ -1,4 +1,5 @@
 import { Calendar, Mail, MapPinIcon, Phone } from "lucide-react";
+import { motion } from "framer-motion";
 
 const contacts = [
   {
@@ -28,10 +29,19 @@ const contacts = [
 ];
 const Contact = () => {
   return (
-    <section className="px-5 lg:px-10 py-16" id="contact">
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <section className="px-5 lg:px-10 py-24" id="contact">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5"
+      >
         {contacts.map((item, index) => (
-          <div key={index} className="p-4 border-e-3 hover:border-e-teal-600 transition hover:-translate-y-2">
+          <div
+            key={index}
+            className="p-4 border-e-3 hover:border-e-teal-600 transition hover:-translate-y-2"
+          >
             <div className="flex items-center justify-center mb-4">
               {item.icon}
             </div>
@@ -42,7 +52,7 @@ const Contact = () => {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };
