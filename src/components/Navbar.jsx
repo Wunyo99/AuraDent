@@ -78,20 +78,7 @@ const Navbar = () => {
     >
       <div className="containe mx-aut w-full flex h-20 items-center justify-between px-4">
         <a href="#home" className="flex items-center gap-2">
-          {/* <div
-            className="
-            flex
-            h-10
-            w-10
-            items-center
-            justify-center
-            rounded-full
-            bg-teal-600
-            text-white
-          "
-          >
-            <GiFrontTeeth size={22}/>
-          </div> */}
+
           <img src={logo} alt="logo" className="w-13 rounded-full" />
           <div>
             <h1
