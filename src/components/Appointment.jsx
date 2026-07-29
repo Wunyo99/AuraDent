@@ -30,6 +30,9 @@ const Appointment = () => {
     console.log(bookingData);
     setBookingData(initialState);
   };
+
+  const today = new Date().toISOString().split("T")[0];
+
   return (
     <section className="px-5 md:px-10 py-16" id="appointment">
       <motion.div
@@ -48,16 +51,14 @@ const Appointment = () => {
           form below and we will contact you to confirm your appointment.
         </p>
       </motion.div>
-      <motion.div
-
-        className="grid grid-cols-1 lg:grid-cols-2 gap-7"
-      >
-        <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.2 }}
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 order-2 lg:order-1 gap-6 justify-center">
+      <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 order-2 lg:order-1 gap-6 justify-center"
+        >
           <div class="overflow-hidden rounded-xl group shadow-lg w-full h-65 col-span-1 lg:col-span-2">
             <img
               src="https://t4.ftcdn.net/jpg/18/94/30/75/240_F_1894307593_NtGhzMGScjRvNhHcxACtZuBQfnSxufc9.jpg"
@@ -97,11 +98,12 @@ const Appointment = () => {
         </motion.div>
 
         <motion.div
-                initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className="order-1 lg:order-2 shadow-xl p-5 h-fit lg:sticky lg:top-32 rounded-xl border">
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="order-1 lg:order-2 shadow-xl p-5 h-fit lg:sticky lg:top-32 rounded-xl border"
+        >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="flex flex-col gap-2">
@@ -188,8 +190,9 @@ const Appointment = () => {
                   name="date"
                   value={bookingData.date}
                   onChange={handleChange}
+                  min={today}
                   required
-                  className="py-3 ps-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition text-gray-600"
+                  className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition text-gray-600"
                 />
               </div>
 
