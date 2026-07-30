@@ -148,7 +148,7 @@ const Appointment = () => {
                   name="phone"
                   value={bookingData.phone}
                   onChange={handleChange}
-                  maxLength={10}
+                  maxLength={13}
                   required
                   className="py-3 px-5 w-full bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
                 />
